@@ -20,7 +20,7 @@ export default function RotatingText() {
   }, []);
 
   return (
-    <div className="h-[120px] md:h-[160px] flex items-center justify-center overflow-hidden">
+    <div className="h-30 md:h-40 flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.h1
           key={index}

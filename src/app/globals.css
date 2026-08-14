@@ -21,3 +21,26 @@ body {
   background: #333;
   border-radius: 4px;
 }
+
+/* Ping-Pong Marquee Animation (Faster & Seamless) */
+@keyframes pingpong {
+  0%,
+  12% {
+    transform: translateX(0);
+  }
+
+  42%,
+  58% {
+    transform: translateX(-50%);
+  }
+
+  88%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-pingpong {
+  animation: pingpong 30s linear infinite;
+  will-change: transform;
+}
