@@ -14,7 +14,7 @@ export default function Marquee() {
   const words = [...baseWords, ...baseWords, ...baseWords, ...baseWords];
 
   return (
-    <section className="bg-[#D6FF43] text-[#0B0D12] py-4 md:py-6 overflow-hidden">
+    <section className="bg-brand-lime text-brand-dark py-4 md:py-6 overflow-hidden">
       <div className="animate-pingpong flex whitespace-nowrap items-center w-max">
         {words.map((word, i) => (
           <div key={i} className="flex items-center">
@@ -25,7 +25,7 @@ export default function Marquee() {
               {word}
             </span>
             {/* Star separator after every word for continuous flow */}
-            <span className="text-lg md:text-xl lg:text-xl text-[#0B0D12] flex items-center">
+            <span className="text-lg md:text-xl lg:text-xl text-brand-dark flex items-center">
               <PiStarFourFill />
             </span>
           </div>

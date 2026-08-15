@@ -33,7 +33,7 @@ const steps = [
 
 export default function Values() {
   return (
-    <section className="bg-[#0B0D12] py-24 md:py-32">
+    <section className="bg-brand-dark py-24 md:py-32">
       <div className="max-w-375 mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
         {/* Left Side: Sticky Main Heading */}
         <div className="md:sticky md:top-32 md:self-start">
@@ -42,26 +42,15 @@ export default function Values() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, amount: 0.3 }}
-            className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-20 text-[#F4F1EA]"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
+            className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-20 text-brand-light font-dm-sans"
           >
             Fast enough to move. Careful enough to{" "}
-            <span
-              style={{
-                fontFamily: "Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: 400,
-                color: "#D6FF43",
-              }}
-            >
+            <span className="font-georgia italic font-normal text-brand-lime">
               matter.
             </span>
           </motion.h2>
 
-          <p
-            className="mt-8 text-[17px] font-normal text-[#9FA5AF] max-w-sm"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
+          <p className="mt-8 text-[17px] font-normal text-text-gray-light max-w-sm font-dm-sans">
             A clear process with visible decisions, frequent reviews and no
             mystery between design and development.
           </p>
@@ -79,32 +68,23 @@ export default function Values() {
               className="grid grid-cols-[32px_1fr_24px] gap-6 py-8 border-b border-white/10"
             >
               {/* Number */}
-              <span
-                className="text-[12px] tracking-wider text-[#D6FF43] pt-1"
-                style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
-              >
+              <span className="text-[12px] tracking-wider text-brand-lime pt-1 font-ibm-plex-mono">
                 {item.num}
               </span>
 
               {/* Content */}
               <div>
-                <h3
-                  className="text-[31px] leading-[100%] text-[#F4F1EA]"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <h3 className="text-[31px] leading-[100%] text-brand-light font-dm-sans">
                   {item.title}
                 </h3>
 
-                <p
-                  className="mt-3 text-[17px] leading-[1.45] font-normal text-[#9FA5AF] max-w-md"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <p className="mt-3 text-[17px] leading-[1.45] font-normal text-text-gray-light max-w-md font-dm-sans">
                   {item.desc}
                 </p>
               </div>
 
               {/* Arrow */}
-              <FiArrowDownRight className="mt-1 text-[#D6FF43]" />
+              <FiArrowDownRight className="mt-1 text-brand-lime" />
             </motion.div>
           ))}
         </div>

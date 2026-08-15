@@ -5,20 +5,14 @@ import { FiArrowDownRight } from "react-icons/fi";
 
 export default function Statement() {
   return (
-    <section
-      className="bg-white text-[#0B0D12] flex items-center justify-center border-b border-[#0B0D1229]"
-      style={{ paddingTop: "80px", paddingBottom: "80px" }}
-    >
+    <section className="bg-white text-brand-dark flex items-center justify-center border-b border-border-dark py-20">
       <div className="max-w-375 mx-auto px-6 lg:px-8 w-full">
         {/* Top Header (00 / WR ... About) */}
-        <div
-          className="flex justify-between items-center pb-4 border-b border-[#0B0D1216] mb-16"
-          style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
-        >
-          <span className="text-[12px] tracking-wider text-[#0B0D12]/50">
+        <div className="flex justify-between items-center pb-4 border-b border-border-light mb-16 font-ibm-plex-mono">
+          <span className="text-[12px] tracking-wider text-brand-dark/50">
             ABOUT
           </span>
-          <span className="text-[12px] tracking-wider text-[#0B0D12]/50">
+          <span className="text-[12px] tracking-wider text-brand-dark/50">
             00 / WR
           </span>
         </div>
@@ -32,13 +26,7 @@ export default function Statement() {
           className=" lg:tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] max-w-5xl"
         >
           We turn ideas into digital experiences -{" "}
-          <span
-            style={{
-              fontFamily: "Georgia, serif",
-              fontStyle: "italic",
-              fontWeight: 400,
-            }}
-          >
+          <span className="font-georgia italic font-normal">
             designing, building, automating
           </span>
           , and growing what comes next.
@@ -47,10 +35,7 @@ export default function Statement() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-24">
           {/* Left Text */}
-          <p
-            className="text-[12px] max-w-xs leading-relaxed text-[#5F6671]"
-            style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
-          >
+          <p className="text-[12px] max-w-xs leading-relaxed text-brand-gray font-ibm-plex-mono">
             Small senior team. <br /> Direct collaboration. <br /> No assembly
             line.
           </p>
@@ -58,12 +43,9 @@ export default function Statement() {
           {/* Right Button with Arrow */}
           <motion.button
             whileHover={{ y: -2 }}
-            className="flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 pb-2 border-b-2 border-[#0B0D12]/50 relative group"
+            className="flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 pb-2 border-b-2 border-brand-dark/50 relative group"
           >
-            <span
-              className="text-[12px] tracking-wider uppercase"
-              style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
-            >
+            <span className="text-[12px] tracking-wider uppercase font-ibm-plex-mono">
               See what we do
             </span>
             <FiArrowDownRight className="text-[16px]" />

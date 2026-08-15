@@ -73,7 +73,7 @@ export default function ApproachDetails() {
   };
 
   return (
-    <section className="bg-white text-[#0B0D12] pb-10 md:pb-20 xl:pb-32">
+    <section className="bg-white text-brand-dark pb-10 md:pb-20 xl:pb-32">
       <div className="max-w-375 mx-auto px-6 lg:px-8 w-full">
         {details.map((item, index) => {
           const isOpen = openIndex === index;
@@ -94,23 +94,11 @@ export default function ApproachDetails() {
               {/* Left Side */}
               <div className="flex flex-col">
                 <div className="flex items-start gap-6">
-                  <span
-                    className="text-[12px] tracking-wider text-gray-500 mt-3"
-                    style={{
-                      fontFamily: "var(--font-ibm-plex-mono)",
-                    }}
-                  >
+                  <span className="text-[12px] tracking-wider text-gray-500 mt-3 font-ibm-plex-mono">
                     {item.num}
                   </span>
 
-                  <h3
-                    className="font-bold text-[#0B0D12] text-4xl md:text-5xl lg:text-[64px]"
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      lineHeight: "100%",
-                      letterSpacing: "-2.88px",
-                    }}
-                  >
+                  <h3 className="font-bold text-brand-dark text-4xl md:text-5xl lg:text-[64px] font-dm-sans leading-[100%] tracking-[-2.88px]">
                     {item.title}
                   </h3>
                 </div>
@@ -146,10 +134,7 @@ export default function ApproachDetails() {
                           <button
                             key={tag}
                             type="button"
-                            className="px-4 py-2 border border-gray-400 rounded-full text-[12px] tracking-wide text-[#0B0D12] hover:bg-[#0B0D12] hover:text-white transition-colors duration-300"
-                            style={{
-                              fontFamily: "var(--font-ibm-plex-mono)",
-                            }}
+                            className="px-4 py-2 border border-gray-400 rounded-full text-[12px] tracking-wide text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300 font-ibm-plex-mono"
                           >
                             {tag}
                           </button>
@@ -171,19 +156,16 @@ export default function ApproachDetails() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <p
-                      className={`text-[17px] font-normal transition-colors duration-300 ${
+                      className={`text-[17px] font-normal transition-colors duration-300 font-dm-sans ${
                         isOpen
-                          ? "text-[#0B0D12]"
-                          : "text-[#5E6570] group-hover:text-[#0B0D12]"
+                          ? "text-brand-dark"
+                          : "text-brand-gray group-hover:text-brand-dark"
                       }`}
-                      style={{
-                        fontFamily: "var(--font-dm-sans)",
-                      }}
                     >
                       {item.rightTitle}
                     </p>
 
-                    <div className="text-xl text-[#0B0D12] mt-1 shrink-0">
+                    <div className="text-xl text-brand-dark mt-1 shrink-0">
                       {isOpen ? <FiMinus /> : <FiPlus />}
                     </div>
                   </div>
@@ -215,12 +197,7 @@ export default function ApproachDetails() {
                       className="overflow-hidden"
                     >
                       <div className="p-5 rounded-lg max-w-md">
-                        <p
-                          className="font-light text-[#5E6570]"
-                          style={{
-                            fontFamily: "var(--font-dm-sans)",
-                          }}
-                        >
+                        <p className="font-light text-brand-gray font-dm-sans">
                           {item.rightDesc}
                         </p>
                       </div>

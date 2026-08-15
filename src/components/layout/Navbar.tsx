@@ -25,7 +25,7 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0D0D0DCC] backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 w-full z-50 bg-bg-deep-black/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-375 mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo Placeholder (Left) */}
         <div className="shrink-0 w-32 h-8 flex items-center">
@@ -51,12 +51,12 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center gap-2 text-xs text-gray-400">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D6FF43] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D6FF43]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-lime"></span>
             </span>
             Available for selected work
           </div>
-          <button className="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 transition-colors duration-200">
+          <button className="px-5 py-2.5 border border-white/30 text-white/70 text-sm font-medium rounded-full hover:bg-gray-200/20 transition-colors duration-200">
             Start a project
           </button>
         </div>
@@ -79,7 +79,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden absolute top-0 left-0 w-full bg-[#0D0D0D] flex flex-col items-center justify-center gap-8 overflow-hidden"
+            className="lg:hidden absolute top-0 left-0 w-full bg-bg-deep-black flex flex-col items-center justify-center gap-8 overflow-hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a

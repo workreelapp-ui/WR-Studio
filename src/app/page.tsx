@@ -14,7 +14,7 @@ import Approach from "@/modules/landing/components/Approach";
 
 export default function Home() {
   return (
-    <main className="bg-[#050505] text-white overflow-x-hidden min-h-screen flex flex-col">
+    <main className="bg-bg-dark text-white overflow-x-hidden min-h-screen flex flex-col">
       <Navbar />
       <Hero />
       <Marquee />

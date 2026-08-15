@@ -4,16 +4,10 @@ import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section
-      className="bg-white text-[#0B0D12] border-b border-[#0B0D1229]"
-      style={{ paddingTop: "80px", paddingBottom: "80px" }}
-    >
+    <section className="bg-white text-brand-dark border-b border-border-dark py-20">
       <div className="max-w-375 mx-auto px-6 lg:px-8 w-full">
         {/* Top Header (SELECTED PROJECTS / 01/03) */}
-        <div
-          className="flex justify-between items-center pb-4 border-b border-[#0B0D1216] mb-16"
-          style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
-        >
+        <div className="flex justify-between items-center pb-4 border-b border-border-light mb-16 font-ibm-plex-mono">
           <span className="text-[12px] text-gray-500 tracking-wider uppercase">
             Selected Projects
           </span>
@@ -28,17 +22,10 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, amount: 0.3 }}
-          className="font-bold lg:tracking-[-4px] leading-10 md:leading-18 xl:leading-27.5 text-4xl md:text-6xl lg:text-[118px] max-w-5xl"
-          style={{ fontFamily: "var(--font-dm-sans)" }}
+          className="font-bold lg:tracking-[-4px] leading-10 md:leading-18 xl:leading-27.5 text-4xl md:text-6xl lg:text-[118px] max-w-5xl font-dm-sans"
         >
           Work with its own <br />
-          <span
-            style={{
-              fontFamily: "Georgia, serif",
-              fontStyle: "italic",
-              fontWeight: 400,
-            }}
-          >
+          <span className="font-georgia italic font-normal">
             visual behaviour.
           </span>
         </motion.h2>
@@ -50,8 +37,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
-            className="mt-12 max-w-md text-[#5F6671] text-[17px] font-normal"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
+            className="mt-12 max-w-md text-brand-gray text-[17px] font-normal font-dm-sans"
           >
             Each product is presented through a distinct art direction rather
             than being forced into one repeating agency template.
