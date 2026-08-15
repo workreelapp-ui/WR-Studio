@@ -5,6 +5,8 @@ import Marquee from "@/modules/landing/components/Marquee";
 import Statement from "@/modules/landing/components/Statement";
 import Projects from "@/modules/landing/components/Projects";
 import Project1 from "@/modules/landing/components/Projects/Project1";
+import Project2 from "@/modules/landing/components/Projects/Project2";
+import Project3 from "@/modules/landing/components/Projects/Project3";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <Statement />
       <Projects />
       <Project1 />
+      <Project2 />
+      <Project3 />
       <Footer />
     </main>
   );
