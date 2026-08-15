@@ -6,7 +6,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Project3() {
   return (
-    <section className="bg-white pt-16 md:pt-24">
+    <section className="bg-white">
       <div className="max-w-375 mx-auto px-6 lg:px-8">
         {/* Main Rounded Container */}
         <div className="bg-[#E3EEFF] rounded-4xl p-8 md:p-12 lg:p-16 overflow-hidden">
@@ -19,10 +19,10 @@ export default function Project3() {
                 className="flex justify-between items-center pb-4 mb-12 md:mb-16"
                 style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
               >
-                <span className="text-[12px] tracking-wider text-gray-500 uppercase">
+                <span className="text-[9px] tracking-wider text-gray-500 uppercase">
                   Music education
                 </span>
-                <span className="text-[12px] tracking-wider text-gray-500 uppercase">
+                <span className="text-[9px] tracking-wider text-gray-500 uppercase">
                   2024
                 </span>
               </div>

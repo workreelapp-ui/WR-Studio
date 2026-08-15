@@ -15,10 +15,10 @@ export default function Project2() {
             className="flex items-center gap-10 md:gap-16 mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-ibm-plex-mono)" }}
           >
-            <span className="text-[12px] tracking-[0.15em] text-white/60 uppercase">
+            <span className="text-[9px] tracking-[0.15em] text-gray-500 uppercase">
               Video hiring platform
             </span>
-            <span className="text-[12px] tracking-[0.15em] text-white/60 uppercase">
+            <span className="text-[9px] tracking-[0.15em] text-gray-500 uppercase">
               2024–25
             </span>
           </div>
@@ -40,7 +40,7 @@ export default function Project2() {
             </motion.h2>
 
             <p
-              className="text-white/80 text-base md:text-lg lg:text-xl lg:max-w-xl lg:text-right leading-relaxed"
+              className="text-gray-400 text-base md:text-lg max-w-100 leading-relaxed"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               A mobile hiring experience that helps service businesses discover
@@ -48,21 +48,20 @@ export default function Project2() {
             </p>
           </div>
 
-          {/* Feature image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
-            className="relative w-full aspect-[1200/650] rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-14"
+            className="relative w-full aspect-1200/650 rounded-2xl md:rounded-3xl  overflow-hidden mb-10 md:mb-14"
           >
             <Image
-              src="/workreel.png"
+              src="/workreel.webp"
               alt="WorkReel — People over paper mobile hiring platform"
               fill
-              loading="eager"
+              priority
               sizes="(max-width: 1024px) 100vw, 1400px"
-              className="object-cover object-center"
+              className="object-contain object-center p-1 rounded-3xl"
             />
           </motion.div>
 

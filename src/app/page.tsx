@@ -7,6 +7,10 @@ import Projects from "@/modules/landing/components/Projects";
 import Project1 from "@/modules/landing/components/Projects/Project1";
 import Project2 from "@/modules/landing/components/Projects/Project2";
 import Project3 from "@/modules/landing/components/Projects/Project3";
+import Approach from "@/modules/landing/components/Projects/Approach";
+import ApproachDetails from "@/modules/landing/components/ApproachDetails";
+import Values from "@/modules/landing/components/Values";
+import WhyStudio from "@/modules/landing/components/WhyStudio";
 
 export default function Home() {
   return (
@@ -19,6 +23,10 @@ export default function Home() {
       <Project1 />
       <Project2 />
       <Project3 />
+      <Approach />
+      <ApproachDetails />
+      <Values />
+      <WhyStudio />
       <Footer />
     </main>
   );

@@ -18,11 +18,14 @@ export default function Marquee() {
       <div className="animate-pingpong flex whitespace-nowrap items-center w-max">
         {words.map((word, i) => (
           <div key={i} className="flex items-center">
-            <span className="text-xl md:text-2xl font-medium tracking-tighter px-6 md:px-10">
+            <span
+              className="text-lg md:text-xl lg:text-xl font-medium tracking-tighter px-3
+             md:px-6 lg:px-10"
+            >
               {word}
             </span>
             {/* Star separator after every word for continuous flow */}
-            <span className="text-xl md:text-2xl text-[#0B0D12] flex items-center">
+            <span className="text-lg md:text-xl lg:text-xl text-[#0B0D12] flex items-center">
               <PiStarFourFill />
             </span>
           </div>

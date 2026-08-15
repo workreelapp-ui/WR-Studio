@@ -58,7 +58,7 @@ export default function Hero() {
         <div className="flex items-start justify-center min-h-27.5 md:min-h-37.5">
           <h1
             className="font-bold text-white text-left flex items-center
-                       text-5xl md:text-7xl lg:text-[110px] 
+                       text-4xl md:text-7xl lg:text-[110px] 
                        leading-15 md:leading-22.5 lg:leading-27.5 
                        tracking-tight lg:tracking-[-4px]"
           >
@@ -99,7 +99,7 @@ export default function Hero() {
           Scroll
         </span>
         {/* Vertical Line Container */}
-        <div className="relative w-[1px] h-12 bg-white/20 overflow-hidden">
+        <div className="relative w-px h-12 bg-white/20 overflow-hidden">
           {/* Animated filling line */}
           <motion.div
             className="absolute top-0 left-0 w-full bg-white"

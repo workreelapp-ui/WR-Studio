@@ -9,7 +9,7 @@ export default function Statement() {
       className="bg-white text-[#0B0D12] flex items-center justify-center border-b border-[#0B0D1229]"
       style={{ paddingTop: "80px", paddingBottom: "80px" }}
     >
-      <div className="max-w-[1500px] mx-auto px-6 lg:px-8 w-full">
+      <div className="max-w-375 mx-auto px-6 lg:px-8 w-full">
         {/* Top Header (00 / WR ... About) */}
         <div
           className="flex justify-between items-center pb-4 border-b border-[#0B0D1216] mb-16"
@@ -29,7 +29,7 @@ export default function Statement() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, amount: 0.3 }}
-          className=" tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] max-w-5xl"
+          className=" lg:tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] max-w-5xl"
         >
           We turn ideas into digital experiences -{" "}
           <span

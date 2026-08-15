@@ -28,7 +28,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, amount: 0.3 }}
-          className="font-bold tracking-[-4px] leading-10 md:leading-18 xl:leading-27.5 text-4xl md:text-6xl lg:text-[118px] max-w-5xl"
+          className="font-bold lg:tracking-[-4px] leading-10 md:leading-18 xl:leading-27.5 text-4xl md:text-6xl lg:text-[118px] max-w-5xl"
           style={{ fontFamily: "var(--font-dm-sans)" }}
         >
           Work with its own <br />
