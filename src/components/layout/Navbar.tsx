@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Logo } from "../svgs";
 
 const navLinks = [
   { name: "Projects", href: "#projects" },
@@ -29,9 +30,7 @@ export function Navbar() {
         {/* Logo Placeholder (Left) */}
         <div className="shrink-0 w-32 h-8 flex items-center">
           {/* Add your logo image/component here later */}
-          <span className="text-yellow-400 font-bold text-xl tracking-tight">
-            WR Studio
-          </span>
+          <Logo />
         </div>
 
         {/* Desktop Nav (Center) */}
