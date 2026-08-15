@@ -1,5 +1,6 @@
 "use client";
-
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Logo } from "../svgs";
 
 export function Footer() {
@@ -9,9 +10,17 @@ export function Footer() {
     { name: "Approach", href: "#approach" },
     { name: "Contact", href: "#contact" },
   ];
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   return (
-    <footer className="bg-brand-dark text-white border-t border-white/5 z-10 relative">
+    <motion.footer
+      ref={containerRef}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-brand-dark text-white border-t border-white/5 z-10 relative"
+    >
       <div className="max-w-375 mx-auto px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
@@ -59,6 +68,6 @@ export function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

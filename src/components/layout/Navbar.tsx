@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Logo } from "../svgs";
 
@@ -14,6 +19,17 @@ const navLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous && latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -25,7 +41,15 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-bg-deep-black/80 backdrop-blur-md border-b border-white/5">
+    <motion.header
+      variants={{
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: "-100%", opacity: 0 },
+      }}
+      animate={hidden && !isOpen ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-full z-50 bg-bg-deep-black/80 backdrop-blur-md border-b border-white/5"
+    >
       <div className="max-w-375 mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo Placeholder (Left) */}
         <div className="shrink-0 w-32 h-8 flex items-center">
@@ -105,6 +129,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
