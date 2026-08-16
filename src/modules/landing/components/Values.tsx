@@ -34,7 +34,7 @@ const steps = [
 export default function Values() {
   return (
     <section className="bg-brand-dark py-24 md:py-32">
-      <div className="max-w-375 mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+      <div className="max-w-375 mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
         {/* Left Side: Sticky Main Heading */}
         <div className="md:sticky md:top-32 md:self-start">
           <motion.h2

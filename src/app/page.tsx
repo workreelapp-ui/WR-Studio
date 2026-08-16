@@ -11,6 +11,7 @@ import ApproachDetails from "@/modules/landing/components/ApproachDetails";
 import Values from "@/modules/landing/components/Values";
 import WhyStudio from "@/modules/landing/components/WhyStudio";
 import Approach from "@/modules/landing/components/Approach";
+import Contact from "@/modules/landing/components/Contact";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <ApproachDetails />
       <Values />
       <WhyStudio />
+      <Contact />
       <Footer />
     </main>
   );

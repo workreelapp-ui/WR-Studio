@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const headings = [
-  "Product thinkers",
-  "Experience makers",
-  "Technology builders",
+  "Product Thinkers",
+  "Experience Makers",
+  "Technology Builders",
 ];
 
 export default function Hero() {
@@ -45,7 +45,7 @@ export default function Hero() {
   }, [text, isDeleting, wordIndex]);
 
   return (
-    <section className="relative w-full flex flex-col items-center justify-center text-center overflow-hidden pt-75 pb-62.5 bg-[linear-gradient(to_bottom,#1e250559,#3d4b0b31)]">
+    <section className="relative w-full flex flex-col items-center justify-center text-center overflow-hidden pt-85 pb-62.5 bg-[linear-gradient(to_bottom,#1e250559,#3d4b0b56)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center">
         {/* Typewriter Heading */}
         <div className="flex items-start justify-center min-h-27.5 md:min-h-37.5">
