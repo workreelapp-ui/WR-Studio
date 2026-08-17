@@ -7,16 +7,13 @@ import Hero from "@/modules/landing/components/Hero";
 import Marquee from "@/modules/landing/components/Marquee";
 import Statement from "@/modules/landing/components/Statement";
 import Projects from "@/modules/landing/components/Projects";
-import Project1 from "@/modules/landing/components/Projects/Project1";
-import Project2 from "@/modules/landing/components/Projects/Project2";
-import Project3 from "@/modules/landing/components/Projects/Project3";
+
 import ApproachDetails from "@/modules/landing/components/ApproachDetails";
 import Values from "@/modules/landing/components/Values";
 import WhyStudio from "@/modules/landing/components/WhyStudio";
 import Approach from "@/modules/landing/components/Approach";
 import Contact from "@/modules/landing/components/Contact";
 import Preloader from "@/components/layout/Preloader";
-import ProjectsSlider from "@/modules/landing/components/ProjectsSlider";
 import ProjectsHorizontalSlider from "@/modules/landing/components/ProjectsHorizontalSlider";
 
 export default function Home() {
@@ -27,7 +24,7 @@ export default function Home() {
 
       {/* GLOBAL STRAP OVERLAY */}
       <div className="fixed inset-0 flex z-60 pointer-events-none">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="flex-1 h-full bg-bg-dark origin-top"

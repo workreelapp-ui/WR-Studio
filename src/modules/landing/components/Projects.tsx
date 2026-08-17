@@ -25,7 +25,7 @@ const itemVariants: Variants = {
 };
 export default function Projects() {
   return (
-    <section className="bg-white text-brand-dark py-20">
+    <section className="bg-white text-brand-dark pt-20">
       <motion.div
         className="max-w-375 mx-auto px-6 lg:px-8 w-full"
         variants={containerVariants}
