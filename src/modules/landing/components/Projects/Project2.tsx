@@ -82,7 +82,7 @@ export default function Project2() {
             }}
           >
             <Image
-              src="/workreel.webp"
+              src="/workreel.png"
               alt="WorkReel — People over paper mobile hiring platform"
               fill
               priority

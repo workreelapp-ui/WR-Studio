@@ -43,7 +43,7 @@ export default function Values() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             // Removed once: true
             viewport={{ amount: 0.3 }}
-            className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-20 text-brand-light font-dm-sans"
+            className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-13 lg:leading-20 text-brand-light font-dm-sans"
           >
             Fast enough to move. Careful enough to{" "}
             <span className="font-georgia italic font-normal text-brand-lime">

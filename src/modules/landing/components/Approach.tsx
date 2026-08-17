@@ -52,18 +52,10 @@ export default function Approach() {
         {/* Main Heading */}
         <motion.h2
           variants={itemVariants}
-          className="font-bold lg:tracking-[-4px] leading-10 md:leading-18 lg:leading-30 text-4xl md:text-6xl lg:text-[118px] max-w-5xl font-dm-sans"
+          className="font-bold  lg:tracking-[-4px] leading-10 md:leading-18 lg:leading-30 text-4xl md:text-6xl lg:text-[118px] max-w-5xl font-dm-sans"
         >
           One partner from first thought to{" "}
-          <span
-            className="font-georgia italic font-normal"
-            style={{
-              letterSpacing: "-7px",
-              verticalAlign: "middle",
-            }}
-          >
-            launch.
-          </span>
+          <span className="font-georgia italic font-normal ">launch</span>
         </motion.h2>
       </motion.div>
     </section>

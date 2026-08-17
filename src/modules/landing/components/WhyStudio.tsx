@@ -47,7 +47,7 @@ export default function WhyStudio() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ amount: 0.3 }}
-            className="font-bold text-4xl md:text-6xl lg:text-[90px] lg:tracking-[-4px] max-w-129 leading-[82.8px] font-dm-sans"
+            className="font-bold text-4xl md:text-6xl lg:text-[90px] lg:tracking-[-4px] max-w-129 leading-10 lg:leading-[82.8px] font-dm-sans"
           >
             Not a vendor at the edge.{" "}
             <span className="block font-georgia italic font-normal">
