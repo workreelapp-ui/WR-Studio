@@ -106,9 +106,9 @@ export default function Contact() {
 
               <button
                 type="button"
-                className="px-5 py-3 border border-white/10 hover:border-brand-lime/30 hover:bg-white/5 hover:text-white text-sm font-medium rounded-full bg-brand-lime text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500 flex items-center gap-3"
+                className="px-2 md:px-5 py-3 border border-white/10 hover:border-brand-lime/30 hover:bg-white/5 hover:text-white text-sm font-medium rounded-full bg-brand-lime text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500 flex items-center gap-2 md:gap-3"
               >
-                <span>Send enquiry</span>
+                <span className="text-sm whitespace-nowrap">Send enquiry</span>
 
                 <FiArrowDownRight />
               </button>
