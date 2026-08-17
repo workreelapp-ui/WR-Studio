@@ -13,7 +13,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.3 }}
             className="text-[10px] tracking-widest uppercase text-brand-lime block mb-12 font-ibm-plex-mono"
           >
             START A PROJECT
@@ -23,7 +23,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ amount: 0.3 }}
             className="lg:tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] text-text-brand-light font-dm-sans max-w-124 font-bold"
           >
             Have something{" "}
@@ -40,7 +40,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3 }}
           className="w-full"
         >
           <form className="flex flex-col">

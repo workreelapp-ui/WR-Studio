@@ -22,7 +22,7 @@ export default function Statement() {
           initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ amount: 0.3 }}
           className=" lg:tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] max-w-5xl"
         >
           We turn ideas into digital experiences -{" "}

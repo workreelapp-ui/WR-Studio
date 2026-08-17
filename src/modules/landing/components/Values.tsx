@@ -41,7 +41,8 @@ export default function Values() {
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, amount: 0.3 }}
+            // Removed once: true
+            viewport={{ amount: 0.3 }}
             className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-20 text-brand-light font-dm-sans"
           >
             Fast enough to move. Careful enough to{" "}
@@ -57,14 +58,19 @@ export default function Values() {
         </div>
 
         {/* Right Side: Simple List with Hidden Scrollbar */}
-        <div className="h-135 overflow-y-auto hidden-scrollbar border-t border-white/10">
+        {/* Added data-lenis-prevent to fix the scroll inside this box */}
+        <div
+          data-lenis-prevent
+          className="h-135 overflow-y-auto hidden-scrollbar border-t border-white/10"
+        >
           {steps.map((item, index) => (
             <motion.div
               key={item.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              // Removed once: true
+              viewport={{ amount: 0.3 }}
               className="grid grid-cols-[32px_1fr_24px] gap-6 py-8 border-b border-white/10"
             >
               {/* Number */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -57,7 +58,8 @@ export default function RootLayout({
       className={`${dmSans.variable} ${ibmPlexMono.variable} ${georgia.variable}`}
     >
       <body className="bg-bg-dark text-white overflow-x-hidden">
-        {children}
+        {/* Wrapped children with SmoothScroll */}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

@@ -25,6 +25,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Change 'mandatory' to 'proximity' */
+
 /* Custom scrollbar for that extra premium feel */
 ::-webkit-scrollbar {
   width: 8px;

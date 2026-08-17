@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 const details = [
@@ -64,6 +64,17 @@ const details = [
   },
 ];
 
+// Same item variant used in the Approach heading for perfect consistency
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 80, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 export default function ApproachDetails() {
   // First accordion is open by default
   const [openIndex, setOpenIndex] = useState(0);
@@ -81,14 +92,11 @@ export default function ApproachDetails() {
           return (
             <motion.div
               key={item.num}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              viewport={{ once: true, amount: 0.3 }}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              // Removed once: true so it replays on scroll up/down
+              viewport={{ amount: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 py-12 border-b border-gray-400 items-start"
             >
               {/* Left Side */}
@@ -129,7 +137,7 @@ export default function ApproachDetails() {
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-wrap max-w-106.75 gap-3 lg:pl-10">
+                      <div className="flex flex-wrap max-w-[427px] gap-3 lg:pl-10">
                         {item.tags.map((tag) => (
                           <button
                             key={tag}

@@ -35,7 +35,8 @@ export default function WhyStudio() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            // Removed once: true
+            viewport={{ amount: 0.3 }}
             className="text-[10px] tracking-wider uppercase text-gray-500 block mb-12 font-ibm-plex-mono"
           >
             Why WR Studio
@@ -45,7 +46,7 @@ export default function WhyStudio() {
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ amount: 0.3 }}
             className="font-bold text-4xl md:text-6xl lg:text-[90px] lg:tracking-[-4px] max-w-129 leading-[82.8px] font-dm-sans"
           >
             Not a vendor at the edge.{" "}
@@ -67,7 +68,7 @@ export default function WhyStudio() {
                 delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ amount: 0.3 }}
               className="border border-gray-100 p-8 md:p-10 group hover:bg-[#F7F7F7] transition-colors duration-300"
             >
               <span className="text-[9px] tracking-wider text-brand-accent block mb-8 font-ibm-plex-mono">

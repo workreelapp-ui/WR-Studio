@@ -57,7 +57,7 @@ export function Navbar() {
       animate={hidden && !isOpen ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
-        "fixed left-0 right-0 mx-auto z-50 transition-all duration-500 ease-in-out",
+        "fixed left-0 right-0 mx-auto z-50 transition-all duration-500 ease-in-out ",
         showFloating
           ? "top-4 w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-375 rounded-full border border-white/10 bg-bg-deep-black/60 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 md:px-6"
           : "top-0 w-full max-w-full rounded-none border-b border-white/5 bg-bg-deep-black/80 backdrop-blur-md px-0",
