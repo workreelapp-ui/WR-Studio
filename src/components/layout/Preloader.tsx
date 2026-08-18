@@ -13,7 +13,7 @@ export default function Preloader() {
     // Trigger the exit animation after 1.8 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 

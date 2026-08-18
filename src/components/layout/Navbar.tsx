@@ -70,7 +70,7 @@ export function Navbar() {
         )}
       >
         {/* Logo (Left) */}
-        <div className="shrink-0 w-32 h-8 flex items-center transition-transform duration-300 hover:scale-105">
+        <div className="shrink-0 flex items-center transition-transform duration-300 hover:scale-105">
           <Logo />
         </div>
 

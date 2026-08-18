@@ -25,13 +25,12 @@ export function Footer() {
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           {/* Left: Brand */}
-          <div className="shrink-0">
-            {/* Replace with your actual logo later */}
+          <div className="shrink-0 flex items-center transition-transform duration-300 hover:scale-105">
             <Logo />
           </div>
 
           {/* Center: Navigation Links */}
-          <nav className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+          <nav className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
