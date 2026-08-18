@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           {/* Center: Navigation Links */}
-          <nav className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+          <nav className="grid grid-cols-2 gap-x-10 gap-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
