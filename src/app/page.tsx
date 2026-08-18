@@ -52,16 +52,16 @@ export default function Home() {
       <div className="snap-section">
         <Statement />
       </div>
-      <div className="snap-section">
+      <div id="projects" className="snap-section">
         <Projects />
       </div>
       <div className="snap-section">
         <ProjectsHorizontalSlider />
       </div>
-      <div className="snap-section">
+      <div id="approach" className="snap-section">
         <Approach />
       </div>
-      <div className="snap-section">
+      <div id="services" className="snap-section">
         <ApproachDetails />
       </div>
       <div className="snap-section">
@@ -70,7 +70,7 @@ export default function Home() {
       <div className="snap-section">
         <WhyStudio />
       </div>
-      <div className="snap-section">
+      <div id="contact" className="snap-section">
         <Contact />
       </div>
       <div className="snap-section">

@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Logo } from "../svgs";
+import Link from "next/link";
 
 export function Footer() {
   const navLinks = [
@@ -32,14 +33,14 @@ export function Footer() {
           {/* Center: Navigation Links */}
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className="text-base text-gray-300 hover:text-white transition-colors duration-200 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
-              </a>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-lime group-hover:w-full transition-all duration-300" />
+              </Link>
             ))}
           </nav>
 
