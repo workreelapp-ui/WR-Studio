@@ -1,11 +1,76 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
 import { motion } from "framer-motion";
 import { FiArrowDownRight } from "react-icons/fi";
+import { useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+    url: "",
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    if (!formData.fullName) {
+      toast.warning("Full name must not be empty.", {
+        position: "top-center",
+      });
+      return false;
+    }
+    if (!formData.email) {
+      toast.warning("Email must not be empty.", {
+        position: "top-center",
+      });
+      return false;
+    }
+    if (!formData.message) {
+      toast.warning("Message must not be empty.", {
+        position: "top-center",
+      });
+      return false;
+    }
+    setLoading(true);
+    const csrf = () => axios.get("/sanctum/csrf-cookie");
+    if (await csrf()) {
+      try {
+        const response = await axios.post(
+          "/api/workreel-services/contact-us",
+          formData,
+        );
+        toast.success(response.data, {
+          position: "top-center",
+        });
+        setFormData({
+          fullName: "",
+          email: "",
+          message: "",
+          url: "",
+        });
+        setLoading(false);
+      } catch (error: any) {
+        toast.error(error?.response?.data?.errors?.email[0], {
+          position: "top-center",
+        });
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <section className="bg-brand-dark py-24 md:py-32">
+      <ToastContainer />
       <div className="max-w-375 mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
         {/* Left Side: Heading */}
         <div>
@@ -43,7 +108,7 @@ export default function Contact() {
           viewport={{ amount: 0.3 }}
           className="w-full"
         >
-          <form className="flex flex-col">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             {/* Name */}
             <div className="flex flex-col">
               <label
@@ -55,6 +120,9 @@ export default function Contact() {
 
               <input
                 type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
                 placeholder="Name or company"
                 className="w-full bg-transparent border-0 border-b border-[#373C45] text-brand-light text-[20px] leading-[1.2] pb-5 focus:outline-none focus:ring-0 focus:border-brand-lime transition-colors duration-300 placeholder:text-brand-gray"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
@@ -72,6 +140,9 @@ export default function Contact() {
 
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="you@company.com"
                 className="w-full bg-transparent border-0 border-b border-[#373C45] text-brand-light text-[20px] leading-[1.2] pb-5 focus:outline-none focus:ring-0 focus:border-brand-lime transition-colors duration-300 placeholder:text-brand-gray"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
@@ -88,6 +159,9 @@ export default function Contact() {
               </label>
 
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="A short overview of the product or challenge"
                 rows={2}
                 className="w-full bg-transparent border-0 border-b border-[#373C45] text-brand-light text-[20px] leading-[1.35] pb-5 focus:outline-none focus:ring-0 focus:border-brand-lime transition-colors duration-300 resize-none placeholder:text-brand-gray "
@@ -105,10 +179,13 @@ export default function Contact() {
               </p>
 
               <button
-                type="button"
-                className="px-2 md:px-5 py-3 border border-white/10 hover:border-brand-lime/30 hover:bg-white/5 hover:text-white text-sm font-medium rounded-full bg-brand-lime text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500 flex items-center gap-2 md:gap-3"
+                type="submit"
+                disabled={loading}
+                className="px-2 md:px-5 py-3 border border-white/10 hover:border-brand-lime/30 hover:bg-white/5 hover:text-white text-sm font-medium rounded-full bg-brand-lime text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500 flex items-center gap-2 md:gap-3 disabled:opacity-50"
               >
-                <span className="text-sm whitespace-nowrap">Send enquiry</span>
+                <span className="text-sm whitespace-nowrap">
+                  {loading ? "Sending..." : "Send enquiry"}
+                </span>
 
                 <FiArrowDownRight />
               </button>
