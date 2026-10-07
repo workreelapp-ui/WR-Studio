@@ -8,9 +8,10 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     const lenis = new Lenis({
       // lerp controls the smoothness. 0.1 is very smooth.
       // Lower = smoother/slower, Higher = faster/snappier.
-      lerp: 0.08,
+      // 0.08 felt sluggish; 0.14 keeps the glide but follows the wheel closely.
+      lerp: 0.14,
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 1.2,
       touchMultiplier: 1.5,
     });
 
