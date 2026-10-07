@@ -13,6 +13,7 @@ import Values from "@/modules/landing/components/Values";
 import WhyStudio from "@/modules/landing/components/WhyStudio";
 import Approach from "@/modules/landing/components/Approach";
 import Contact from "@/modules/landing/components/Contact";
+import Pricing from "@/modules/landing/components/Pricing";
 import Preloader from "@/components/layout/Preloader";
 import ProjectsHorizontalSlider from "@/modules/landing/components/ProjectsHorizontalSlider";
 
@@ -69,6 +70,9 @@ export default function Home() {
       </div>
       <div className="snap-section">
         <WhyStudio />
+      </div>
+      <div id="pricing" className="snap-section">
+        <Pricing />
       </div>
       <div id="contact" className="snap-section">
         <Contact />

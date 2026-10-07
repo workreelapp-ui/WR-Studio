@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 import {
   motion,
   AnimatePresence,
@@ -16,6 +16,7 @@ const navLinks = [
   { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
   { name: "Approach", href: "#approach" },
+  { name: "Pricing", href: "#pricing" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -48,6 +49,11 @@ export function Navbar() {
   }, [isOpen]);
 
   const showFloating = isScrolled && !isOpen;
+
+  const startProject = () => {
+    setIsOpen(false);
+    scroller.scrollTo("contact", { smooth: true, duration: 500 });
+  };
 
   return (
     <motion.header
@@ -101,7 +107,10 @@ export function Navbar() {
             </span>
             Available for selected work
           </div>
-          <button className="px-5 py-2 border border-white/10 hover:border-brand-lime/30 bg-white/5 text-white text-sm font-medium rounded-full hover:bg-brand-lime hover:text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500">
+          <button
+            type="button"
+            onClick={startProject}
+            className="px-5 py-2 border border-white/10 hover:border-brand-lime/30 bg-white/5 text-white text-sm font-medium rounded-full hover:bg-brand-lime hover:text-black shadow-[0_0_15px_rgba(214,255,67,0.05)] hover:shadow-[0_0_25px_rgba(214,255,67,0.35)] transition-all duration-500">
             Start a project
           </button>
         </div>
@@ -146,6 +155,8 @@ export function Navbar() {
               </motion.div>
             ))}
             <motion.button
+              type="button"
+              onClick={startProject}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
