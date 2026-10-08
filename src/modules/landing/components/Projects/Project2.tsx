@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
+import { choosePackage } from "@/lib/choosePackage";
 
 export default function Project2() {
   return (
@@ -71,18 +72,7 @@ export default function Project2() {
                     ease: [0.22, 1, 0.36, 1] as const,
                   }}
                   viewport={{ amount: 0.3 }}
-                  className="
-                    text-white
-                    font-bold
-                    tracking-[-0.055em]
-                    text-5xl
-                    sm:text-6xl
-                    md:text-7xl
-                    lg:text-[100px]
-                    xl:text-[110px]
-                    font-dm-sans
-                    leading-[0.9]
-                  "
+                  className="text-white font-bold font-dm-sans type-h2"
                 >
                   WorkReel
                 </motion.h2>
@@ -164,11 +154,13 @@ export default function Project2() {
               {/* CTA */}
               <div className="lg:col-span-5">
                 <motion.button
+                  type="button"
+                  onClick={() => choosePackage("Mobile App (iOS + Android)")}
                   whileHover={{ y: -2 }}
                   className="flex items-center justify-between text-white border-t border-white/70 pb-2 group w-full"
                 >
                   <span className="text-sm font-medium pt-2 font-dm-sans">
-                    Discuss a mobile product
+                    Get a mobile app like this
                   </span>
 
                   <FiArrowUpRight className="text-lg transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

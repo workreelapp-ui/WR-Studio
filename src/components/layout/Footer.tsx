@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export function Footer() {
   const navLinks = [
-    { name: "Projects", href: "#projects" },
-    { name: "Services", href: "#services" },
-    { name: "Approach", href: "#approach" },
+    { name: "Packages", href: "#pricing" },
+    { name: "Work", href: "#projects" },
+    { name: "Process", href: "#process" },
     { name: "Contact", href: "#contact" },
   ];
   const containerRef = useRef(null);
@@ -47,13 +47,13 @@ export function Footer() {
           {/* Right: Contact Info */}
           <div className="md:text-right">
             <a
-              href="mailto:hello@workreel.studio"
+              href="mailto:hello@workreel.com"
               className="text-base text-white hover:text-yellow-400 transition-colors duration-200 font-medium block"
             >
-              hello@workreel.studio
+              hello@workreel.com
             </a>
             <p className="text-sm text-gray-500 mt-1 max-w-xs md:ml-auto">
-              Available for selected freelance work and collaborations.
+              Taking new projects now. We reply within 1–2 working days.
             </p>
           </div>
         </div>
@@ -64,7 +64,7 @@ export function Footer() {
             © 2026 WR Studio. All rights reserved.
           </p>
           <p className="text-xs text-gray-600 tracking-widest uppercase">
-            Design · Build · Automate
+            Apps · Design · Video
           </p>
         </div>
       </div>

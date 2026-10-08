@@ -13,10 +13,9 @@ import { Logo } from "../svgs";
 import { cn } from "../../lib/utild";
 
 const navLinks = [
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
-  { name: "Approach", href: "#approach" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Packages", href: "#pricing" },
+  { name: "Work", href: "#projects" },
+  { name: "Process", href: "#process" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -105,7 +104,7 @@ export function Navbar() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-85"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-lime"></span>
             </span>
-            Available for selected work
+            Taking new projects
           </div>
           <button
             type="button"

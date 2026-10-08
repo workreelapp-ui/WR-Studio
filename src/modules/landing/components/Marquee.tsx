@@ -2,11 +2,13 @@ import { PiStarFourFill } from "react-icons/pi";
 
 export default function Marquee() {
   const baseWords = [
-    "Product Design",
-    "Web Development",
+    "Web Apps",
     "Mobile Apps",
-    "AI Automation",
-    "Brand Systems",
+    "Landing Pages",
+    "Logos & Brand Kits",
+    "Social Creatives",
+    "Reels & Shorts",
+    "YouTube Edits",
   ];
 
   // Duplicate the array multiple times to ensure there is NEVER empty space

@@ -2,32 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { scroller } from "react-scroll";
 import { FiArrowDownRight, FiCheck } from "react-icons/fi";
 import { cn } from "@/lib/utild";
-import {
-  CALENDLY_URL,
-  SELECT_PACKAGE_EVENT,
-  TIERS,
-  categories,
-  usd,
-  type SelectPackageDetail,
-  type TierName,
-} from "@/lib/packages";
-
-const tierFeatures = (tier: TierName, more: string) =>
-  ({
-    Basic: ["Core deliverable", "1 revision"],
-    Standard: [more, "3 revisions", "Faster delivery"],
-    Premium: ["Full scope", "Unlimited revisions", "Priority delivery"],
-  })[tier];
-
-function choose(service: string, tier: TierName) {
-  window.dispatchEvent(
-    new CustomEvent<SelectPackageDetail>(SELECT_PACKAGE_EVENT, { detail: { service, tier } }),
-  );
-  scroller.scrollTo("contact", { smooth: true, duration: 500 });
-}
+import { choosePackage } from "@/lib/choosePackage";
+import { CALENDLY_URL, TIERS, categories, usd } from "@/lib/packages";
 
 export default function Pricing() {
   const [active, setActive] = useState(0);
@@ -44,7 +22,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ amount: 0.3 }}
-              className="text-[10px] tracking-widest uppercase text-brand-lime block mb-12 font-ibm-plex-mono"
+              className="type-eyebrow text-brand-lime block mb-12 font-ibm-plex-mono"
             >
               PACKAGES
             </motion.span>
@@ -53,7 +31,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ amount: 0.3 }}
-              className="font-bold text-4xl md:text-6xl lg:text-[90px] lg:tracking-[-4px] leading-[100%] text-brand-light font-dm-sans max-w-160"
+              className="font-bold text-brand-light font-dm-sans max-w-160 type-h2"
             >
               Clear scope.{" "}
               <span className="font-georgia italic font-normal text-brand-lime">
@@ -63,9 +41,9 @@ export default function Pricing() {
             </motion.h2>
           </div>
           <p className="text-[17px] font-normal text-text-gray-light max-w-md font-dm-sans lg:justify-self-end">
-            Pick a package and a tier, and we&apos;ll confirm the details with
-            you before any work starts. Need something bigger or custom? Tell
-            us below.
+            Every package lists exactly what you get and when you get it. Pick
+            one, and we&apos;ll confirm the details in writing before any work
+            starts. Need something custom? Tell us below.
           </p>
         </div>
 
@@ -98,30 +76,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Tier header: what each tier includes (desktop) */}
-        <div className="hidden md:grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-6 mt-14 pb-6 border-b border-white/10">
-          <span className="text-[10px] tracking-widest uppercase text-text-gray-light font-ibm-plex-mono self-end">
-            Package
-          </span>
-          {TIERS.map((tier) => (
-            <div key={tier}>
-              <p className="text-[22px] text-brand-light font-dm-sans">{tier}</p>
-              <ul className="mt-3 space-y-1.5">
-                {tierFeatures(tier, cat.more).map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-center gap-2 text-[13px] text-text-gray-light font-dm-sans"
-                  >
-                    <FiCheck className="text-brand-lime shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Package rows */}
+        {/* Packages: one row per package, one card per tier */}
         <AnimatePresence mode="wait">
           <motion.div
             key={cat.title}
@@ -129,59 +84,80 @@ export default function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 md:mt-0"
+            className="mt-10"
           >
             {cat.packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-4 md:gap-6 py-8 border-b border-white/10 md:items-center"
+                className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-6 lg:gap-10 py-10 border-t border-white/10"
               >
-                <h3 className="text-[26px] md:text-[31px] leading-[110%] text-brand-light font-dm-sans">
+                <h3 className="text-brand-light font-dm-sans type-h3">
                   {pkg.name}
                 </h3>
 
-                {TIERS.map((tier, t) => (
-                  <button
-                    key={tier}
-                    type="button"
-                    onClick={() => choose(pkg.name, tier)}
-                    className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-left transition-all duration-300 hover:border-brand-lime/40 hover:bg-white/5 hover:shadow-[0_0_25px_rgba(214,255,67,0.15)]"
-                    aria-label={`Choose ${pkg.name}, ${tier}, ${usd(pkg.prices[t])}`}
-                  >
-                    <span>
-                      <span className="block text-[10px] tracking-widest uppercase text-text-gray-light font-ibm-plex-mono md:hidden">
-                        {tier}
-                      </span>
-                      <span className="block text-[28px] font-bold tracking-[-1px] text-brand-light font-dm-sans">
-                        {usd(pkg.prices[t])}
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 text-xs font-medium text-text-gray-light group-hover:text-brand-lime transition-colors duration-300">
-                      Choose
-                      <FiArrowDownRight />
-                    </span>
-                  </button>
-                ))}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {TIERS.map((tier, t) => {
+                    const featured = tier === "Standard";
+                    return (
+                      <div
+                        key={tier}
+                        className={cn(
+                          "flex flex-col rounded-2xl border p-6 transition-all duration-300",
+                          featured
+                            ? "border-brand-lime/40 bg-white/[0.05]"
+                            : "border-white/10 bg-white/[0.03] hover:border-white/20",
+                        )}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-[11px] tracking-widest uppercase text-text-gray-light font-ibm-plex-mono">
+                            {tier}
+                          </span>
+                          {featured && (
+                            <span className="text-[10px] tracking-widest uppercase text-brand-lime font-ibm-plex-mono">
+                              Recommended
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-3 text-[36px] font-bold tracking-[-1px] text-brand-light font-dm-sans leading-none">
+                          {usd(pkg.prices[t])}
+                        </p>
+                        <ul className="mt-6 space-y-2 flex-1">
+                          {pkg.includes[t].map((f) => (
+                            <li
+                              key={f}
+                              className="flex items-start gap-2 text-[14px] text-text-gray-light font-dm-sans"
+                            >
+                              <FiCheck className="text-brand-lime shrink-0 mt-1" />
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
+                        <button
+                          type="button"
+                          onClick={() => choosePackage(pkg.name, tier)}
+                          aria-label={`Choose ${pkg.name}, ${tier}, ${usd(pkg.prices[t])}`}
+                          className={cn(
+                            "mt-6 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium font-dm-sans transition-all duration-300",
+                            featured
+                              ? "bg-brand-lime text-black hover:shadow-[0_0_25px_rgba(214,255,67,0.35)]"
+                              : "border border-white/15 text-brand-light hover:border-brand-lime hover:text-brand-lime",
+                          )}
+                        >
+                          Choose {tier}
+                          <FiArrowDownRight />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* Tier details for small screens */}
-        <div className="md:hidden mt-10 grid grid-cols-1 gap-6">
-          {TIERS.map((tier) => (
-            <div key={tier}>
-              <p className="text-[18px] text-brand-light font-dm-sans">{tier}</p>
-              <p className="mt-1 text-[13px] text-text-gray-light font-dm-sans">
-                {tierFeatures(tier, cat.more).join(" · ")}
-              </p>
-            </div>
-          ))}
-        </div>
-
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[10px] tracking-[0.08em] text-text-gray-light font-ibm-plex-mono">
-            All prices in USD.
+          <p className="text-[12px] tracking-[0.04em] text-text-gray-light font-ibm-plex-mono">
+            All prices in USD, fixed once scope is confirmed.
           </p>
           <a
             href={CALENDLY_URL}

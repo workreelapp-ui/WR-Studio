@@ -39,22 +39,22 @@ export default function Projects() {
           variants={itemVariants}
           className="flex justify-between items-center pb-4 border-b border-border-light mb-16 font-ibm-plex-mono"
         >
-          <span className="text-[12px] text-gray-500 tracking-wider uppercase">
-            Selected Projects
+          <span className="type-eyebrow text-gray-500">
+            Recent work
           </span>
-          <span className="text-[12px] tracking-wider text-gray-500">
-            01 / 03
+          <span className="type-eyebrow text-gray-500">
+            03 projects
           </span>
         </motion.div>
 
         {/* Main Heading */}
         <motion.h2
           variants={itemVariants}
-          className="font-bold lg:tracking-[-4px] leading-10 md:leading-18 lg:leading-30 text-4xl md:text-6xl lg:text-[118px] max-w-5xl font-dm-sans"
+          className="font-bold max-w-5xl font-dm-sans type-h2"
         >
-          Work with its own <br />
+          Real products, <br />
           <span className="font-georgia italic font-normal">
-            visual behaviour.
+            designed and built by us.
           </span>
         </motion.h2>
 
@@ -64,8 +64,9 @@ export default function Projects() {
             variants={itemVariants}
             className="mt-12 max-w-md text-brand-gray text-[17px] font-normal font-dm-sans"
           >
-            Each product is presented through a distinct art direction rather
-            than being forced into one repeating agency template.
+            A few of the apps we&apos;ve taken from idea to working product.
+            Have something similar in mind? Each project links straight to the
+            matching package.
           </motion.p>
         </div>
       </motion.div>

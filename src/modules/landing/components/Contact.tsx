@@ -1,9 +1,11 @@
 "use client";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowDownRight } from "react-icons/fi";
 import { useEffect, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utild";
 import {
   CALENDLY_URL,
@@ -51,7 +53,7 @@ export default function Contact() {
   useEffect(() => {
     const onSelect = (e: Event) => {
       const { service, tier } = (e as CustomEvent<SelectPackageDetail>).detail;
-      setForm((f) => ({ ...f, service, tier }));
+      setForm((f) => ({ ...f, service, tier: tier ?? "" }));
     };
     window.addEventListener(SELECT_PACKAGE_EVENT, onSelect);
     return () => window.removeEventListener(SELECT_PACKAGE_EVENT, onSelect);
@@ -80,6 +82,7 @@ export default function Contact() {
       toast.success("Thanks! We've got your requirements and will reply within 1–2 working days.", {
         position: "top-center",
       });
+      trackEvent("generate_lead", { service: form.service || undefined, tier: form.tier || undefined });
       setForm(EMPTY);
     } catch (err) {
       toast.error((err as Error).message, { position: "top-center" });
@@ -99,7 +102,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ amount: 0.3 }}
-            className="text-[10px] tracking-widest uppercase text-brand-lime block mb-12 font-ibm-plex-mono"
+            className="type-eyebrow text-brand-lime block mb-12 font-ibm-plex-mono"
           >
             START A PROJECT
           </motion.span>
@@ -109,15 +112,16 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ amount: 0.3 }}
-            className="lg:tracking-[-4px] leading-[100%] text-4xl md:text-6xl lg:text-[90px] text-text-brand-light font-dm-sans max-w-124 font-bold"
+            className="text-text-brand-light font-dm-sans max-w-124 font-bold type-h2"
           >
-            Have something{" "}
-            <span className="font-georgia italic font-normal text-brand-lime">ambitious</span> <br />
-            in mind?
+            Ready to{" "}
+            <span className="font-georgia italic font-normal text-brand-lime">get started</span>
+            ?
           </motion.h2>
 
           <p className="mt-8 text-[17px] text-text-gray-light max-w-sm font-dm-sans">
-            Tell us what you need and we&apos;ll come back with next steps. Prefer to talk it through?{" "}
+            Tell us what you need and we&apos;ll reply with the scope, price and
+            delivery date. Prefer to talk it through?{" "}
             <a
               href={CALENDLY_URL}
               target="_blank"

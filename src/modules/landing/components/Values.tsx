@@ -6,28 +6,28 @@ import { FiArrowDownRight } from "react-icons/fi";
 const steps = [
   {
     num: "01",
-    title: "Discover",
-    desc: "Understand the opportunity, audience, constraints and existing product context.",
+    title: "Choose",
+    desc: "Pick a package, or send us your requirements and we'll suggest the right one.",
   },
   {
     num: "02",
-    title: "Define",
-    desc: "Structure the problem and align on a clear, measurable product direction.",
+    title: "Confirm",
+    desc: "We confirm the scope, price and delivery date in writing before any work starts.",
   },
   {
     num: "03",
-    title: "Design",
-    desc: "Craft the interfaces, flows, and visual systems that bring the product to life.",
+    title: "Create",
+    desc: "We design, build or edit, and share progress with you along the way.",
   },
   {
     num: "04",
-    title: "Build",
-    desc: "Engineer robust, scalable code that turns designs into functional reality.",
+    title: "Review",
+    desc: "You give feedback and we make the revisions included in your package.",
   },
   {
     num: "05",
-    title: "Launch",
-    desc: "Deploy, monitor, and iterate to ensure a successful market entry and growth.",
+    title: "Deliver",
+    desc: "You get the finished files, or your site or app goes live. It's yours to keep.",
   },
 ];
 
@@ -43,17 +43,17 @@ export default function Values() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             // Removed once: true
             viewport={{ amount: 0.3 }}
-            className="font-bold text-4xl md:text-6xl lg:text-[90px] max-w-123.75 lg:tracking-[-4px] leading-13 lg:leading-20 text-brand-light font-dm-sans"
+            className="font-bold max-w-123.75 text-brand-light font-dm-sans type-h2"
           >
-            Fast enough to move. Careful enough to{" "}
+            Five simple steps.{" "}
             <span className="font-georgia italic font-normal text-brand-lime">
-              matter.
+              No surprises.
             </span>
           </motion.h2>
 
           <p className="mt-8 text-[17px] font-normal text-text-gray-light max-w-sm font-dm-sans">
-            A clear process with visible decisions, frequent reviews and no
-            mystery between design and development.
+            You always know what&apos;s happening, what&apos;s next and what
+            it costs.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function Values() {
 
               {/* Content */}
               <div>
-                <h3 className="text-[31px] leading-[100%] text-brand-light font-dm-sans">
+                <h3 className="text-brand-light font-dm-sans type-h3">
                   {item.title}
                 </h3>
 

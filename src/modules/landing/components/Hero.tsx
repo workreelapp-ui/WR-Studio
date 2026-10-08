@@ -1,52 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
-const headings = [
-  "Product Thinkers",
-  "Experience Makers",
-  "Technology Builders",
-];
+import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
+import { scrollToSection } from "@/lib/choosePackage";
+import { CALENDLY_URL } from "@/lib/packages";
 
 export default function Hero() {
-  const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  /*
-   * =====================================================
-   * TYPEWRITER
-   * =====================================================
-   */
-
-  useEffect(() => {
-    const currentWord = headings[wordIndex];
-
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (text.length < currentWord.length) {
-            setText(currentWord.substring(0, text.length + 1));
-          } else {
-            setIsDeleting(true);
-          }
-        } else {
-          if (text.length > 0) {
-            setText(currentWord.substring(0, text.length - 1));
-          } else {
-            setIsDeleting(false);
-            setWordIndex((prev) => (prev + 1) % headings.length);
-          }
-        }
-      },
-      isDeleting ? 50 : text === currentWord ? 1500 : 100,
-    );
-
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, wordIndex]);
 
   /*
    * =====================================================
@@ -135,7 +96,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-[90svh] flex flex-col items-center justify-center text-center overflow-hidden pt-85 pb-62.5 bg-bg-dark">
+    <section className="relative w-full h-[90svh] flex flex-col items-center justify-center text-center overflow-hidden pt-28 pb-24 bg-bg-dark">
       {/* =====================================================
           HERO VIDEO BACKGROUND
           ===================================================== */}
@@ -152,7 +113,7 @@ export default function Hero() {
           <source src="/WR_Studio_Hero_Optimized.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* =====================================================
@@ -160,44 +121,53 @@ export default function Hero() {
           ===================================================== */}
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center z-10">
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 2.2,
-            duration: 1.0,
-          }}
-          className="flex items-start justify-center min-h-27.5 md:min-h-37.5"
+          transition={{ delay: 1.0, duration: 0.9 }}
+          className="font-bold text-brand-light max-w-6xl type-display"
         >
-          <h1 className="font-bold text-brand-light text-left flex items-center text-4xl md:text-7xl lg:text-[110px] leading-15 md:leading-22.5 lg:leading-27.5 tracking-tight lg:tracking-[-4px]">
-            <span>{text}</span>
-
-            <motion.span
-              className="inline-block w-1 md:w-2 lg:w-3 bg-brand-lime ml-2 md:ml-4 self-stretch"
-              animate={{
-                opacity: [1, 0, 1],
-              }}
-              transition={{
-                duration: 0.8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </h1>
-        </motion.div>
+          Apps, brands &amp; video.{" "}
+          <span className="block font-georgia italic font-normal text-brand-lime">
+            Fixed prices.
+          </span>
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 2.6,
-            duration: 1.0,
-          }}
-          className="mt-10 max-w-xl text-text-gray-light font-light text-[17px] leading-[1.4] tracking-wide"
+          transition={{ delay: 1.2, duration: 0.9 }}
+          className="mt-8 max-w-xl text-text-gray-light font-light text-[17px] md:text-[19px] leading-[1.45] tracking-wide"
         >
-          One studio for the full digital journey - from the first idea to
-          product, technology and growth.
+          Packages for small businesses, from a $149 landing page to a full
+          iOS + Android app. You see what&apos;s included, the price and the
+          delivery date before we start.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.9 }}
+          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+        >
+          <button
+            type="button"
+            onClick={() => scrollToSection("pricing")}
+            className="flex items-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-[15px] font-medium text-black transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(214,255,67,0.4)]"
+          >
+            See packages &amp; prices
+            <FiArrowDownRight />
+          </button>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full border border-white/25 bg-black/20 px-7 py-3.5 text-[15px] font-medium text-brand-light backdrop-blur-sm transition-colors duration-300 hover:border-brand-lime hover:text-brand-lime"
+          >
+            Book a free call
+            <FiArrowUpRight />
+          </a>
+        </motion.div>
       </div>
 
       {/* =====================================================
@@ -208,7 +178,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          delay: 3.0,
+          delay: 1.8,
         }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
       >

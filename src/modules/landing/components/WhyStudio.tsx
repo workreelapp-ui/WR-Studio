@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 const principles = [
   {
     num: "01",
-    title: "Senior attention",
-    desc: "Work directly with senior experts who are embedded in your project, not handed off to junior teams.",
+    title: "Prices you can plan around",
+    desc: "The price on the package is the price you pay. If you want extra work, we quote it before we start.",
   },
   {
     num: "02",
-    title: "One connected team",
-    desc: "Seamless collaboration between design, development, and strategy under one unified roof.",
+    title: "Real delivery dates",
+    desc: "Every package comes with a delivery time, so you can plan your launch, campaign or posting schedule.",
   },
   {
     num: "03",
-    title: "Systems over trends",
-    desc: "We build scalable, sustainable design systems and architectures, not just fleeting visual trends.",
+    title: "Everything from one team",
+    desc: "Your app, brand and videos come from the same studio, so they look like they belong together.",
   },
   {
     num: "04",
-    title: "Built for change",
-    desc: "Flexible and agile processes designed to adapt as your product, market, and user base evolves.",
+    title: "Talk to the maker",
+    desc: "You deal directly with the designers, developers and editors doing your work, not an account manager.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function WhyStudio() {
             transition={{ duration: 0.6 }}
             // Removed once: true
             viewport={{ amount: 0.3 }}
-            className="text-[10px] tracking-wider uppercase text-gray-500 block mb-12 font-ibm-plex-mono"
+            className="type-eyebrow text-gray-500 block mb-12 font-ibm-plex-mono"
           >
             Why WR Studio
           </motion.span>
@@ -47,11 +47,11 @@ export default function WhyStudio() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ amount: 0.3 }}
-            className="font-bold text-4xl md:text-6xl lg:text-[90px] lg:tracking-[-4px] max-w-129 leading-10 lg:leading-[82.8px] font-dm-sans"
+            className="font-bold max-w-129 font-dm-sans type-h2"
           >
-            Not a vendor at the edge.{" "}
+            Studio quality.{" "}
             <span className="block font-georgia italic font-normal">
-              A product partner inside.
+              Fair prices.
             </span>
           </motion.h2>
         </div>
@@ -74,7 +74,7 @@ export default function WhyStudio() {
               <span className="text-[9px] tracking-wider text-brand-accent block mb-8 font-ibm-plex-mono">
                 {item.num}
               </span>
-              <h3 className="font-bold text-brand-dark text-2xl md:text-[28px] mb-4 font-dm-sans leading-none">
+              <h3 className="font-bold text-brand-dark mb-4 font-dm-sans type-h3">
                 {item.title}
               </h3>
               <p className="text-[17px] font-normal text-brand-gray max-w-sm font-dm-sans">

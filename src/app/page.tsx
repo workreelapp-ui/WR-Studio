@@ -8,10 +8,9 @@ import Marquee from "@/modules/landing/components/Marquee";
 import Statement from "@/modules/landing/components/Statement";
 import Projects from "@/modules/landing/components/Projects";
 
-import ApproachDetails from "@/modules/landing/components/ApproachDetails";
+import Reviews from "@/modules/landing/components/Reviews";
 import Values from "@/modules/landing/components/Values";
 import WhyStudio from "@/modules/landing/components/WhyStudio";
-import Approach from "@/modules/landing/components/Approach";
 import Contact from "@/modules/landing/components/Contact";
 import Pricing from "@/modules/landing/components/Pricing";
 import Preloader from "@/components/layout/Preloader";
@@ -32,8 +31,8 @@ export default function Home() {
             initial={{ scaleY: 1 }}
             animate={{ scaleY: 0 }}
             transition={{
-              delay: 1.8 + i * 0.15,
-              duration: 1.2,
+              delay: 0.9 + i * 0.06,
+              duration: 0.9,
               ease: [0.76, 0, 0.24, 1],
             }}
           />
@@ -53,26 +52,23 @@ export default function Home() {
       <div className="snap-section">
         <Statement />
       </div>
+      <div id="pricing" className="snap-section">
+        <Pricing />
+      </div>
       <div id="projects" className="snap-section">
         <Projects />
       </div>
       <div className="snap-section">
         <ProjectsHorizontalSlider />
       </div>
-      <div id="approach" className="snap-section">
-        <Approach />
+      <div id="reviews" className="snap-section">
+        <Reviews />
       </div>
-      <div id="services" className="snap-section">
-        <ApproachDetails />
-      </div>
-      <div className="snap-section">
+      <div id="process" className="snap-section">
         <Values />
       </div>
       <div className="snap-section">
         <WhyStudio />
-      </div>
-      <div id="pricing" className="snap-section">
-        <Pricing />
       </div>
       <div id="contact" className="snap-section">
         <Contact />

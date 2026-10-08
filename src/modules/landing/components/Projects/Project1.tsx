@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
+import { choosePackage } from "@/lib/choosePackage";
 
 export default function Project1() {
   return (
@@ -71,18 +72,7 @@ export default function Project1() {
                   ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 viewport={{ amount: 0.3 }}
-                className="
-                  text-brand-dark
-                  font-bold
-                  tracking-[-0.055em]
-                  text-5xl
-                  sm:text-6xl
-                  md:text-7xl
-                  lg:text-[100px]
-                  xl:text-[110px]
-                  font-dm-sans
-                  leading-[0.9]
-                "
+                className="text-brand-dark font-bold font-dm-sans type-h2"
               >
                 HostyAI
               </motion.h2>
@@ -114,11 +104,13 @@ export default function Project1() {
               {/* CTA */}
               <div className="mt-7 sm:mt-9 lg:mt-14">
                 <motion.button
+                  type="button"
+                  onClick={() => choosePackage("MVP Web App")}
                   whileHover={{ y: -2 }}
                   className="flex items-center justify-between text-brand-dark border-t border-brand-dark/70 pb-2 group w-full"
                 >
                   <span className="text-sm font-medium pt-2 font-dm-sans">
-                    Discuss a SaaS product
+                    Get a web app like this
                   </span>
 
                   <FiArrowUpRight className="text-lg transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -159,7 +151,7 @@ export default function Project1() {
             >
               <Image
                 src="/hostyai.png"
-                alt="HostyAI Project Screenshot"
+                alt="HostyAI hospitality SaaS dashboard: guest conversations, AI replies and booking details"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
