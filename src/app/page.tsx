@@ -8,6 +8,7 @@ import Marquee from "@/modules/landing/components/Marquee";
 import Statement from "@/modules/landing/components/Statement";
 import Projects from "@/modules/landing/components/Projects";
 
+import Faq from "@/modules/landing/components/Faq";
 import Reviews from "@/modules/landing/components/Reviews";
 import Values from "@/modules/landing/components/Values";
 import WhyStudio from "@/modules/landing/components/WhyStudio";
@@ -69,6 +70,9 @@ export default function Home() {
       </div>
       <div className="snap-section">
         <WhyStudio />
+      </div>
+      <div id="faq" className="snap-section">
+        <Faq />
       </div>
       <div id="contact" className="snap-section">
         <Contact />

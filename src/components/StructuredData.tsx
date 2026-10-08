@@ -1,10 +1,11 @@
+import { faqs } from "@/lib/faq";
 import { categories } from "@/lib/packages";
 import { COMPANY_NAME, SITE_DESCRIPTION, SITE_EMAIL, SITE_NAME, SITE_URL } from "@/lib/site";
 
 // schema.org description of the studio and its fixed-price packages, so
 // search engines can understand the services and prices.
 export default function StructuredData() {
-  const data = {
+  const studio = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}/#studio`,
@@ -15,6 +16,7 @@ export default function StructuredData() {
     logo: `${SITE_URL}/logo.svg`,
     image: `${SITE_URL}/opengraph-image`,
     description: SITE_DESCRIPTION,
+    knowsAbout: ["Web app development", "Mobile app development", "Landing page design", "Logo design", "Brand identity", "Social media design", "Video editing"],
     priceRange: "$19 – $3,499",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -35,10 +37,24 @@ export default function StructuredData() {
       })),
     },
   };
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
+    <>
+      {[studio, faqPage].map((d) => (
+        <script
+          key={d["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(d).replace(/</g, "\\u003c") }}
+        />
+      ))}
+    </>
   );
 }

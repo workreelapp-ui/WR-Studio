@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiArrowDownRight, FiCheck } from "react-icons/fi";
 import { cn } from "@/lib/utild";
 import { choosePackage } from "@/lib/choosePackage";
@@ -9,7 +9,6 @@ import { CALENDLY_URL, TIERS, categories, usd } from "@/lib/packages";
 
 export default function Pricing() {
   const [active, setActive] = useState(0);
-  const cat = categories[active];
 
   return (
     <section className="bg-brand-dark py-24 md:py-32 border-b border-white/10">
@@ -55,6 +54,7 @@ export default function Pricing() {
               type="button"
               role="tab"
               aria-selected={active === i}
+              aria-controls={`packages-${i}`}
               onClick={() => setActive(i)}
               className={cn(
                 "px-5 py-2.5 rounded-full border text-sm font-medium font-dm-sans transition-all duration-300 flex items-center gap-3",
@@ -76,13 +76,17 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Packages: one row per package, one card per tier */}
-        <AnimatePresence mode="wait">
+        {/* Packages: one row per package, one card per tier. Every category
+            is in the HTML (inactive ones hidden) so search engines and AI
+            crawlers, which don't click tabs, can read all prices. */}
+        {categories.map((cat, i) => (
           <motion.div
             key={cat.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            id={`packages-${i}`}
+            role="tabpanel"
+            hidden={active !== i}
+            initial={false}
+            animate={active === i ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="mt-10"
           >
@@ -153,7 +157,7 @@ export default function Pricing() {
               </div>
             ))}
           </motion.div>
-        </AnimatePresence>
+        ))}
 
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-[12px] tracking-[0.04em] text-text-gray-light font-ibm-plex-mono">
