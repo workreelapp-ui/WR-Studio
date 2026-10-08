@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Logo } from "../svgs";
 import Link from "next/link";
+import { openCookieSettings } from "@/lib/consent";
 
 export function Footer() {
   const navLinks = [
@@ -62,6 +63,13 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600 tracking-wider">
             © 2026 WR Studio. All rights reserved.
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="ml-4 underline underline-offset-2 hover:text-gray-400 transition-colors duration-200"
+            >
+              Cookie settings
+            </button>
           </p>
           <p className="text-xs text-gray-600 tracking-widest uppercase">
             Apps · Design · Video

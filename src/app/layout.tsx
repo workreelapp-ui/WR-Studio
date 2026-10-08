@@ -4,6 +4,7 @@ import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Analytics from "@/components/Analytics";
+import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
         {/* Wrapped children with SmoothScroll */}
         <StructuredData />
         <SmoothScroll>{children}</SmoothScroll>
+        <CookieBanner />
         <Analytics />
       </body>
     </html>
