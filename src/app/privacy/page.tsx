@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/svgs";
-import { SITE_EMAIL, SITE_NAME } from "@/lib/site";
+import { COMPANY_NAME, SITE_EMAIL, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Privacy policy | ${SITE_NAME}`,
@@ -16,9 +16,12 @@ const sections: { title: string; body: React.ReactNode }[] = [
     title: "Who we are",
     body: (
       <p>
-        {SITE_NAME} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) designs and builds apps,
-        brands and videos. We are responsible for the personal information
-        described here. You can contact us about privacy at{" "}
+        {SITE_NAME} is a trading name of {COMPANY_NAME} (&ldquo;we&rdquo;,
+        &ldquo;us&rdquo;), which designs and builds apps, brands and videos.
+        We are responsible for the personal information described here and
+        handle it in line with the Australian Privacy Principles in the
+        Privacy Act 1988 (Cth), and, for visitors in the UK or EU, the UK and
+        EU GDPR. You can contact us about privacy at{" "}
         <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>.
       </p>
     ),
@@ -98,9 +101,11 @@ const sections: { title: string; body: React.ReactNode }[] = [
           <li><strong>Calendly</strong>: if you book a call, Calendly handles the booking under its own privacy policy.</li>
         </ul>
         <p>
-          Some of these providers process data outside the UK and EU. They do
-          so under appropriate safeguards, such as standard contractual
-          clauses.
+          These providers may store or process your information outside
+          Australia, including in the United States, the UK, the European
+          Union and other countries where they operate. We take reasonable
+          steps to make sure they protect it, and for UK and EU visitors we
+          rely on safeguards such as standard contractual clauses.
         </p>
       </>
     ),
@@ -124,13 +129,17 @@ const sections: { title: string; body: React.ReactNode }[] = [
           You can ask to see, correct or delete your information, object to
           or restrict how we use it, or ask for a copy to take elsewhere.
           Email <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a> and
-          we&apos;ll respond within one month.
+          we&apos;ll respond within 30 days.
         </p>
         <p>
           If you&apos;re unhappy with how we&apos;ve handled your information,
-          you can complain to the UK Information Commissioner&apos;s Office at{" "}
-          <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>{" "}
-          or your local data protection authority.
+          please tell us first so we can try to fix it. You can also complain
+          to the Office of the Australian Information Commissioner at{" "}
+          <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer">oaic.gov.au</a>.
+          If you&apos;re in the UK, you can contact the Information
+          Commissioner&apos;s Office at{" "}
+          <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>; in the
+          EU, your local data protection authority.
         </p>
       </>
     ),

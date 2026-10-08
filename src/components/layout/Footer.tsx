@@ -62,7 +62,7 @@ export function Footer() {
         {/* Bottom Copyright Bar */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600 tracking-wider">
-            © 2026 WR Studio. All rights reserved.
+            © 2026 WR Studio, a trading name of WorkReel Australia Pty Ltd.
             <button
               type="button"
               onClick={openCookieSettings}
