@@ -16,7 +16,6 @@ export const categories = [
   {
     num: "01",
     title: "App Development",
-    image: { src: "/packages/app-development.webp", alt: "WR Studio App Development: web apps, mobile apps and landing pages, shown as a dashboard on a laptop and a payments app on a phone", width: 1080, height: 940 },
     packages: [
       {
         name: "MVP Web App",
@@ -50,7 +49,6 @@ export const categories = [
   {
     num: "02",
     title: "Graphic Design",
-    image: { src: "/packages/graphic-design.webp", alt: "WR Studio Graphic Design: logos, brand kits and social creatives, shown as a logo, social post and business card in a design tool", width: 1080, height: 940 },
     packages: [
       {
         name: "Logo + Brand Kit",
@@ -75,7 +73,6 @@ export const categories = [
   {
     num: "03",
     title: "Video Editing",
-    image: { src: "/packages/video-editing.webp", alt: "WR Studio Video Editing: Reels, Shorts and YouTube edits with captions, transitions and motion, shown in a video editor timeline", width: 761, height: 632 },
     packages: [
       {
         name: "Reels / TikToks / Shorts",

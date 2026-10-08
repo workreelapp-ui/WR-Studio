@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiArrowDownRight, FiCheck } from "react-icons/fi";
 import { cn } from "@/lib/utild";
@@ -48,11 +47,7 @@ export default function Pricing() {
         </div>
 
         {/* Category tabs */}
-        <div
-          className="mt-16 flex flex-wrap gap-3"
-          role="tablist"
-          aria-label="Service categories"
-        >
+        <div className="mt-16 flex flex-wrap gap-3" role="tablist" aria-label="Service categories">
           {categories.map((c, i) => (
             <button
               key={c.title}
@@ -91,91 +86,76 @@ export default function Pricing() {
             role="tabpanel"
             hidden={active !== i}
             initial={false}
-            animate={
-              active === i ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
+            animate={active === i ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-6 lg:gap-10"
+            className="mt-10"
           >
-            <div className="pt-10 border-t border-white/10">
-              <Image
-                src={cat.image.src}
-                alt={cat.image.alt}
-                width={cat.image.width}
-                height={cat.image.height}
-                sizes="(max-width: 1024px) 100vw, 25vw"
-                className="w-full max-w-md h-auto rounded-2xl border border-white/10 lg:sticky lg:top-28"
-              />
-            </div>
+            {cat.packages.map((pkg) => (
+              <div
+                key={pkg.name}
+                className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-6 lg:gap-10 py-10 border-t border-white/10"
+              >
+                <h3 className="text-brand-light font-dm-sans type-h3">
+                  {pkg.name}
+                </h3>
 
-            <div>
-              {cat.packages.map((pkg) => (
-                <div
-                  key={pkg.name}
-                  className="flex flex-col gap-6 py-10 border-t border-white/10"
-                >
-                  <h3 className="text-brand-light font-dm-sans type-h3">
-                    {pkg.name}
-                  </h3>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {TIERS.map((tier, t) => {
-                      const featured = tier === "Standard";
-                      return (
-                        <div
-                          key={tier}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {TIERS.map((tier, t) => {
+                    const featured = tier === "Standard";
+                    return (
+                      <div
+                        key={tier}
+                        className={cn(
+                          "flex flex-col rounded-2xl border p-6 transition-all duration-300",
+                          featured
+                            ? "border-brand-lime/40 bg-white/[0.05]"
+                            : "border-white/10 bg-white/[0.03] hover:border-white/20",
+                        )}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-[11px] tracking-widest uppercase text-text-gray-light font-ibm-plex-mono">
+                            {tier}
+                          </span>
+                          {featured && (
+                            <span className="text-[10px] tracking-widest uppercase text-brand-lime font-ibm-plex-mono">
+                              Recommended
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-3 text-[36px] font-bold tracking-[-1px] text-brand-light font-dm-sans leading-none">
+                          {usd(pkg.prices[t])}
+                        </p>
+                        <ul className="mt-6 space-y-2 flex-1">
+                          {pkg.includes[t].map((f) => (
+                            <li
+                              key={f}
+                              className="flex items-start gap-2 text-[14px] text-text-gray-light font-dm-sans"
+                            >
+                              <FiCheck className="text-brand-lime shrink-0 mt-1" />
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
+                        <button
+                          type="button"
+                          onClick={() => choosePackage(pkg.name, tier)}
+                          aria-label={`Choose ${pkg.name}, ${tier}, ${usd(pkg.prices[t])}`}
                           className={cn(
-                            "flex flex-col rounded-2xl border p-6 transition-all duration-300",
+                            "mt-6 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium font-dm-sans transition-all duration-300",
                             featured
-                              ? "border-brand-lime/40 bg-white/[0.05]"
-                              : "border-white/10 bg-white/[0.03] hover:border-white/20",
+                              ? "bg-brand-lime text-black hover:shadow-[0_0_25px_rgba(214,255,67,0.35)]"
+                              : "border border-white/15 text-brand-light hover:border-brand-lime hover:text-brand-lime",
                           )}
                         >
-                          <div className="flex items-center justify-between gap-3">
-                            <span className="text-[11px] tracking-widest uppercase text-text-gray-light font-ibm-plex-mono">
-                              {tier}
-                            </span>
-                            {featured && (
-                              <span className="text-[10px] tracking-widest uppercase text-brand-lime font-ibm-plex-mono">
-                                Recommended
-                              </span>
-                            )}
-                          </div>
-                          <p className="mt-3 text-[36px] font-bold tracking-[-1px] text-brand-light font-dm-sans leading-none">
-                            {usd(pkg.prices[t])}
-                          </p>
-                          <ul className="mt-6 space-y-2 flex-1">
-                            {pkg.includes[t].map((f) => (
-                              <li
-                                key={f}
-                                className="flex items-start gap-2 text-[14px] text-text-gray-light font-dm-sans"
-                              >
-                                <FiCheck className="text-brand-lime shrink-0 mt-1" />
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                          <button
-                            type="button"
-                            onClick={() => choosePackage(pkg.name, tier)}
-                            aria-label={`Choose ${pkg.name}, ${tier}, ${usd(pkg.prices[t])}`}
-                            className={cn(
-                              "mt-6 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium font-dm-sans transition-all duration-300",
-                              featured
-                                ? "bg-brand-lime text-black hover:shadow-[0_0_25px_rgba(214,255,67,0.35)]"
-                                : "border border-white/15 text-brand-light hover:border-brand-lime hover:text-brand-lime",
-                            )}
-                          >
-                            Choose {tier}
-                            <FiArrowDownRight />
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
+                          Choose {tier}
+                          <FiArrowDownRight />
+                        </button>
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </motion.div>
         ))}
 
