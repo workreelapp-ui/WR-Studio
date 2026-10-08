@@ -70,6 +70,12 @@ export function Footer() {
             >
               Cookie settings
             </button>
+            <Link
+              href="/privacy"
+              className="ml-4 underline underline-offset-2 hover:text-gray-400 transition-colors duration-200"
+            >
+              Privacy policy
+            </Link>
           </p>
           <p className="text-xs text-gray-600 tracking-widest uppercase">
             Apps · Design · Video

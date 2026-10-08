@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { OPEN_SETTINGS_EVENT, getConsent, setConsent, type Consent } from "@/lib/consent";
 
@@ -42,7 +43,10 @@ export default function CookieBanner() {
           <p className="mt-2 text-[14px] leading-[1.5] text-text-gray-light">
             We&apos;d like to use Google Analytics cookies to see how people
             use this site, so we can improve it. They&apos;re only set if you
-            accept. You can change this any time under Cookie settings.
+            accept. You can change this any time under Cookie settings.{" "}
+            <Link href="/privacy" className="text-brand-light underline underline-offset-2 hover:text-brand-lime">
+              Privacy policy
+            </Link>
           </p>
           <div className="mt-5 grid grid-cols-2 gap-3">
             <button
