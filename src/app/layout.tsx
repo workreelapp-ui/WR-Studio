@@ -5,7 +5,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Analytics from "@/components/Analytics";
 import CookieBanner from "@/components/CookieBanner";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
+import { OPEN_GRAPH, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -50,21 +50,14 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: "/",
-    siteName: SITE_NAME,
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    locale: "en_AU",
-  },
+  // No canonical, og:url or robots here: pages set their own canonical, and
+  // leaving robots unset lets the 404 page's noindex stand on its own.
+  openGraph: { ...OPEN_GRAPH, title: SITE_TITLE, description: SITE_DESCRIPTION },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

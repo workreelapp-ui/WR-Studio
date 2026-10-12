@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/svgs";
-import { COMPANY_NAME, SITE_EMAIL, SITE_NAME } from "@/lib/site";
+import { COMPANY_NAME, OPEN_GRAPH, SITE_EMAIL, SITE_NAME } from "@/lib/site";
 
 const TITLE = `Privacy policy | ${SITE_NAME}`;
 const DESCRIPTION = `How ${SITE_NAME} collects, uses and protects your information.`;
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/privacy" },
-  openGraph: { type: "website", url: "/privacy", siteName: SITE_NAME, title: TITLE, description: DESCRIPTION, locale: "en_AU" },
+  openGraph: { ...OPEN_GRAPH, url: "/privacy", title: TITLE, description: DESCRIPTION },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 

@@ -86,6 +86,7 @@ export function Navbar() {
             <Link
               key={link.name}
               to={link.href.replace("#", "")}
+              href={link.href}
               smooth={true}
               duration={500}
               spy={true}
@@ -143,6 +144,7 @@ export function Navbar() {
               >
                 <Link
                   to={link.href.replace("#", "")}
+                  href={link.href}
                   smooth={true}
                   duration={500}
                   spy={true}
