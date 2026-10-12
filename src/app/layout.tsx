@@ -5,7 +5,6 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Analytics from "@/components/Analytics";
 import CookieBanner from "@/components/CookieBanner";
-import StructuredData from "@/components/StructuredData";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 const dmSans = DM_Sans({
@@ -84,7 +83,6 @@ export default function RootLayout({
     >
       <body className="bg-bg-dark text-white overflow-x-hidden">
         {/* Wrapped children with SmoothScroll */}
-        <StructuredData />
         <SmoothScroll>{children}</SmoothScroll>
         <CookieBanner />
         <Analytics />

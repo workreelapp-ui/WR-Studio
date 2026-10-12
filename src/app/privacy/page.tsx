@@ -3,10 +3,17 @@ import Link from "next/link";
 import { Logo } from "@/components/svgs";
 import { COMPANY_NAME, SITE_EMAIL, SITE_NAME } from "@/lib/site";
 
+const TITLE = `Privacy policy | ${SITE_NAME}`;
+const DESCRIPTION = `How ${SITE_NAME} collects, uses and protects your information.`;
+
+// openGraph and twitter are set here because Next replaces, rather than
+// merges, these objects, so the homepage's url and title would leak through.
 export const metadata: Metadata = {
-  title: `Privacy policy | ${SITE_NAME}`,
-  description: `How ${SITE_NAME} collects, uses and protects your information.`,
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/privacy" },
+  openGraph: { type: "website", url: "/privacy", siteName: SITE_NAME, title: TITLE, description: DESCRIPTION, locale: "en_AU" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const UPDATED = "8 October 2026";

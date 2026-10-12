@@ -16,11 +16,14 @@ import Contact from "@/modules/landing/components/Contact";
 import Pricing from "@/modules/landing/components/Pricing";
 import Preloader from "@/components/layout/Preloader";
 import ProjectsHorizontalSlider from "@/modules/landing/components/ProjectsHorizontalSlider";
+import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
     // Removed h-screen and overflow-y-scroll so the window scrolls naturally
     <main className="bg-bg-dark text-white min-h-screen flex flex-col relative">
+      {/* Only on the homepage: the FAQ markup must match a visible FAQ */}
+      <StructuredData />
       <Preloader />
 
       {/* GLOBAL STRAP OVERLAY */}

@@ -16,6 +16,8 @@ export default function StructuredData() {
     logo: `${SITE_URL}/logo.svg`,
     image: `${SITE_URL}/opengraph-image`,
     description: SITE_DESCRIPTION,
+    address: { "@type": "PostalAddress", addressCountry: "AU" },
+    areaServed: "Worldwide",
     knowsAbout: ["Web app development", "Mobile app development", "Landing page design", "Logo design", "Brand identity", "Social media design", "Video editing"],
     priceRange: "$19 – $3,499",
     hasOfferCatalog: {
@@ -37,6 +39,15 @@ export default function StructuredData() {
       })),
     },
   };
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: "en-AU",
+    publisher: { "@id": `${SITE_URL}/#studio` },
+  };
   const faqPage = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -48,7 +59,7 @@ export default function StructuredData() {
   };
   return (
     <>
-      {[studio, faqPage].map((d) => (
+      {[studio, website, faqPage].map((d) => (
         <script
           key={d["@type"]}
           type="application/ld+json"

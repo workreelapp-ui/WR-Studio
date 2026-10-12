@@ -126,7 +126,6 @@ export default function Project2() {
                 src="/workreel.png"
                 alt="WorkReel — People over paper mobile hiring platform"
                 fill
-                priority
                 sizes="100vw"
                 className="object-contain object-center"
               />

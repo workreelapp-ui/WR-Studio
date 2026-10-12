@@ -152,7 +152,6 @@ export default function Project3() {
                 src="/snareobic.png"
                 alt="Snareobics drum practice app screens: exercises, tempo control and progress tracking"
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain object-center"
               />

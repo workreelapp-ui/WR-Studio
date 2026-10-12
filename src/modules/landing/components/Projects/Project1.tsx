@@ -153,7 +153,6 @@ export default function Project1() {
                 src="/hostyai.png"
                 alt="HostyAI hospitality SaaS dashboard: guest conversations, AI replies and booking details"
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain object-center"
               />
