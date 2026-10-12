@@ -56,7 +56,7 @@ export default function Project1() {
               </div>
 
               {/* Title */}
-              <motion.h2
+              <motion.h3
                 initial={{
                   opacity: 0,
                   y: 30,
@@ -75,7 +75,7 @@ export default function Project1() {
                 className="text-brand-dark font-bold font-dm-sans type-h2"
               >
                 HostyAI
-              </motion.h2>
+              </motion.h3>
 
               {/* Description */}
               <p className="text-text-gray pt-4 sm:pt-5 max-w-xl lg:max-w-[90%] leading-relaxed font-dm-sans text-sm sm:text-base">

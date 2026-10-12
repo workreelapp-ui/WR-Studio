@@ -7,16 +7,23 @@ import Analytics from "@/components/Analytics";
 import CookieBanner from "@/components/CookieBanner";
 import { OPEN_GRAPH, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
+// preload is off for all three fonts: the theme's --font-dm-sans,
+// --font-ibm-plex-mono and --font-georgia don't read these *-local variables,
+// so no text uses them, and preloading them only competed with the page's
+// own resources (the four Georgia TTFs alone are ~850 KB). Browsers download
+// an @font-face only when text uses it, so this changes nothing visually.
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
   variable: "--font-dm-sans-local",
+  preload: false,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-ibm-plex-mono-local",
+  preload: false,
 });
 
 const georgia = localFont({
@@ -43,6 +50,7 @@ const georgia = localFont({
     },
   ],
   variable: "--font-georgia-local",
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -56,7 +56,7 @@ export default function Project2() {
                 </div>
 
                 {/* Title */}
-                <motion.h2
+                <motion.h3
                   initial={{
                     opacity: 0,
                     y: 30,
@@ -75,7 +75,7 @@ export default function Project2() {
                   className="text-white font-bold font-dm-sans type-h2"
                 >
                   WorkReel
-                </motion.h2>
+                </motion.h3>
               </div>
 
               {/* RIGHT DESCRIPTION */}
